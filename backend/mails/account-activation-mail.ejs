@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Next Learning Account Activation Mail</title>
+
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      .mail-template {
+        position: relative;
+        font-family: 'Manrope', sans-serif;
+        background-color: #ddd;
+        padding: 10px;
+      }
+
+      .mail {
+        width: 500px;
+        margin: auto;
+        position: relative;
+      }
+
+      .mail-logo {
+        width: 100%;
+        height: 100%;
+        background-color: #fff;
+        padding: 10px 0;
+      }
+
+      .mail-logo img {
+        display: block;
+        width: 300px;
+        margin: auto;
+      }
+
+      .mail-body {
+        color: #fff;
+        background-color: #0b3954;
+        padding: 15px 30px;
+      }
+
+      .mail-body p {
+        color: #fff;
+        margin: 15px 0;
+      }
+
+      .mail-body span {
+        font-weight: bold;
+        color: #087e8b;
+      }
+
+      .activation-code {
+        text-align: center;
+        margin: 5px 0;
+      }
+
+      .activation-code h3 {
+        display: inline-block;
+        background-color: #087e8b;
+        padding: 8px 30px;
+        border-radius: 5px;
+      }
+
+      .mail-footer {
+        text-align: center;
+        color: #ddd;
+        background-color: #087e8b;
+        padding: 10px;
+      }
+
+      .mail-footer p {
+        font-size: 14px;
+        line-height: 1.5rem;
+      }
+
+      .mail-footer a {
+        font-weight: bold;
+        color: #fff;
+      }
+
+      @media (max-width: 600px) {
+        .mail-template {
+          padding: 0;
+        }
+
+        .mail {
+          width: 400px;
+        }
+
+        .mail-body {
+          padding: 15px;
+        }
+      }
+    </style>
+  </head>
+
+  <body class="mail-template">
+    <section class="mail">
+      <header class="mail-header">
+        <div class="mail-logo">
+          <img
+            src="https://res.cloudinary.com/ds60krqho/image/upload/v1709839508/Logos/kz2pj6tqhyxl97t3loac.png"
+            alt="logo"
+          />
+        </div>
+      </header>
+
+      <div class="mail-body">
+        <p>Dear <span><%= user.name %></span>,</p>
+        <p>
+          Thank you for signing up for our service! To activate your account and start enjoying our
+          features, please use the following activation code:
+        </p>
+        <div class="activation-code">
+          <h3><%= activationCode %></h3>
+        </div>
+
+        <p>
+          Please note that this activation code is only valid for <span>5 minutes</span>. After this
+          time, you will need to request a new activation code.
+        </p>
+        <p style="text-align: center; font-size: 14px; color: #ddd">
+          If you did not request this activation code, please ignore this email.
+        </p>
+      </div>
+
+      <div class="mail-footer">
+        <p>
+          If you have any queries, please contact at
+          <a href="mailto:react@nextlearning.coms">reach@nextlearning.com</a>
+        </p>
+      </div>
+    </section>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+const PRIMARY_COLOR = '#087E8B'
+const SECONDARY_COLOR = '#0B3954'
+const WHITE_COLOR = '#FFF'
+const BLACK_COLOR = '#000'
+const GREY_COLOR = '#333'
+
+export const Colors = {
+  PRIMARY_COLOR,
+  SECONDARY_COLOR,
+  WHITE_COLOR,
+  BLACK_COLOR,
+  GREY_COLOR
+}

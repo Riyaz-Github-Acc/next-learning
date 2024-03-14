@@ -1,0 +1,43 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id         String       @id @default(uuid())
+  name       String
+  email      String       @unique
+  password   String?
+  avatar     Json
+  role       String       @default("user")
+  isVerified Boolean      @default(false)
+  enrollment Enrollment[]
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+}
+
+model Course {
+  id         String       @id @default(uuid())
+  title      String       @unique
+  enrollment Enrollment[]
+  createdAt  DateTime     @default(now())
+  updatedAt  DateTime     @updatedAt
+}
+
+// * Prisma does not allow many to many relationships, so we are using the conjunction table
+model Enrollment {
+  id        String   @id @default(uuid())
+  // * Foreign Keys
+  userId    String
+  courseId  String
+  user      User     @relation(fields: [userId], references: [id])
+  course    Course   @relation(fields: [courseId], references: [id])
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, courseId])
+}
